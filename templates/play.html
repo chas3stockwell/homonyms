@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block body_attrs %}data-end-timestamp="{{ end_timestamp }}"{% endblock %}
+
+{% block content %}
+<div class="play-container">
+    <div class="play-header">
+        <span class="progress" id="progress">{{ matched_count }}/{{ total_definitions }} found</span>
+        <span class="timer" id="timer">3:00</span>
+    </div>
+
+    <div class="word-display">
+        {% for letter in word %}
+        <span class="tile">{{ letter }}</span>
+        {% endfor %}
+    </div>
+
+    <form id="guess-form" class="guess-form" autocomplete="off">
+        <input
+            type="text"
+            id="guess-input"
+            class="guess-input"
+            placeholder="Type a meaning..."
+            maxlength="200"
+            autofocus
+        >
+        <button type="submit" id="submit-btn" class="btn-submit">Go</button>
+    </form>
+
+    <div class="definitions-section">
+        <div id="matched-list">
+            {% for d in matched_definitions %}
+            <div class="matched-def">
+                <span class="check">&#10003;</span>
+                <span class="def-text">{{ d.definition }}</span>
+                <span class="tier-badge tier-{{ d.tier|lower }}">{{ d.tier }}</span>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div id="placeholders">
+            {% for i in range(total_definitions - matched_count) %}
+            <div class="def-placeholder">
+                <span class="qmark">?</span>
+                <span class="placeholder-text">Unknown meaning</span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="guess-history">
+        <h3>Your Guesses</h3>
+        <ul id="guess-list"></ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/game.js') }}"></script>
+{% endblock %}

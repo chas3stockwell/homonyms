@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="results-container">
+    <p class="puzzle-info">Puzzle #{{ puzzle_number }}</p>
+
+    <div class="word-display">
+        {% for letter in word %}
+        <span class="tile">{{ letter }}</span>
+        {% endfor %}
+    </div>
+
+    <div class="score-summary">
+        <p class="score-big">{{ matched_count }} / {{ total_count }}</p>
+        <p class="score-label">meanings found</p>
+        <div class="score-bar-track">
+            <div class="score-bar-fill" style="width: {{ score }}%"></div>
+        </div>
+        <p class="score-pct">{{ score }}%</p>
+    </div>
+
+    {% if matched_definitions %}
+    <div class="results-section found-section">
+        <h3>Found</h3>
+        {% for d in matched_definitions %}
+        <div class="result-def result-found">
+            <span class="check">&#10003;</span>
+            <span class="def-text">{{ d.definition }}</span>
+            <span class="tier-badge tier-{{ d.tier|lower }}">{{ d.tier }}</span>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if missed_definitions %}
+    <div class="results-section missed-section">
+        <h3>Missed</h3>
+        {% for d in missed_definitions %}
+        <div class="result-def result-missed">
+            <span class="xmark">&#10007;</span>
+            <span class="def-text">{{ d.definition }}</span>
+            <span class="tier-badge tier-{{ d.tier|lower }}">{{ d.tier }}</span>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if guesses %}
+    <div class="results-section guesses-section">
+        <h3>Your Guesses</h3>
+        {% for g in guesses %}
+        <div class="guess-record {{ 'guess-hit' if g.matched else 'guess-miss' }}">
+            <span class="guess-icon">{{ '&#10003;' if g.matched else '&#10007;' }}</span>
+            <span>"{{ g.text }}"</span>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="results-actions">
+        <button id="share-btn" class="btn btn-primary"
+            data-word="{{ word }}"
+            data-puzzle="{{ puzzle_number }}"
+            data-matched="{{ matched_count }}"
+            data-total="{{ total_count }}"
+            data-results="{% for d in matched_definitions %}+{% endfor %}{% for d in missed_definitions %}-{% endfor %}">
+            Share
+        </button>
+        <a href="/" class="btn btn-secondary">Home</a>
+    </div>
+
+    <p class="next-word-note">A new word appears every day at midnight.</p>
+</div>
+
+<script>
+document.getElementById("share-btn").addEventListener("click", function() {
+    const btn = this;
+    const word = btn.dataset.word.toUpperCase();
+    const num = btn.dataset.puzzle;
+    const matched = btn.dataset.matched;
+    const total = btn.dataset.total;
+    const results = btn.dataset.results;
+
+    const text = `Homonyms #${num} — ${word}\n${matched}/${total} meanings found\n${results}`;
+
+    navigator.clipboard.writeText(text).then(function() {
+        btn.textContent = "Copied!";
+        setTimeout(function() { btn.textContent = "Share"; }, 2000);
+    });
+});
+</script>
+{% endblock %}

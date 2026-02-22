@@ -1,0 +1,495 @@
+/* === Reset & Base === */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #121213;
+    color: #d7dadc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* === Header === */
+header {
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 1px solid #3a3a3c;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: #d7dadc;
+    text-decoration: none;
+}
+
+/* === Main === */
+main {
+    flex: 1;
+    max-width: 520px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+}
+
+/* === Buttons === */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+.btn-primary {
+    background: #538d4e;
+    color: #fff;
+}
+
+.btn-secondary {
+    background: #3a3a3c;
+    color: #d7dadc;
+}
+
+/* === Index Page === */
+.index-container {
+    text-align: center;
+}
+
+.tagline {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.puzzle-info {
+    color: #818384;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.word-preview {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 1.5rem;
+}
+
+.tile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    background: #3a3a3c;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.def-count {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #818384;
+}
+
+.def-count strong {
+    color: #d7dadc;
+}
+
+.played-note {
+    margin-top: 1rem;
+    color: #818384;
+    font-size: 0.9rem;
+}
+
+.how-to-play {
+    margin-top: 2.5rem;
+    text-align: left;
+    background: #1a1a1b;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+}
+
+.how-to-play h3 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    color: #fff;
+}
+
+.how-to-play ul {
+    list-style: none;
+    padding: 0;
+}
+
+.how-to-play li {
+    padding: 0.35rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+    font-size: 0.95rem;
+    color: #818384;
+    line-height: 1.4;
+}
+
+.how-to-play li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #538d4e;
+}
+
+/* === Play Page === */
+.play-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.play-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.progress {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #538d4e;
+}
+
+.timer {
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: #d7dadc;
+}
+
+.timer-warning {
+    color: #e74c3c;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+.word-display {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    padding: 0.5rem 0;
+}
+
+/* === Guess Form === */
+.guess-form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.guess-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    font-size: 1.1rem;
+    background: #2a2a2a;
+    border: 2px solid #3a3a3c;
+    border-radius: 6px;
+    color: #d7dadc;
+    outline: none;
+    transition: border-color 0.2s, background-color 0.3s;
+}
+
+.guess-input:focus {
+    border-color: #538d4e;
+}
+
+.guess-input::placeholder {
+    color: #565656;
+}
+
+.btn-submit {
+    padding: 0.75rem 1.25rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    background: #538d4e;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    min-width: 60px;
+    transition: opacity 0.15s;
+}
+
+.btn-submit:hover {
+    opacity: 0.85;
+}
+
+.btn-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Flash animations */
+.flash-success {
+    background-color: rgba(83, 141, 78, 0.3) !important;
+    border-color: #538d4e !important;
+}
+
+.flash-fail {
+    background-color: rgba(231, 76, 60, 0.2) !important;
+    border-color: #e74c3c !important;
+}
+
+/* === Definitions === */
+.definitions-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.matched-def {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 0.75rem;
+    border-left: 3px solid #538d4e;
+    background: rgba(83, 141, 78, 0.08);
+    margin-bottom: 0.4rem;
+    border-radius: 0 4px 4px 0;
+}
+
+.matched-def .check {
+    color: #538d4e;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.def-text {
+    flex: 1;
+    font-size: 0.95rem;
+}
+
+.def-placeholder {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 0.75rem;
+    border-left: 3px solid #3a3a3c;
+    margin-bottom: 0.4rem;
+    border-radius: 0 4px 4px 0;
+}
+
+.qmark {
+    color: #565656;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.placeholder-text {
+    color: #3a3a3c;
+    font-size: 0.95rem;
+}
+
+/* Tier badges */
+.tier-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+.tier-common { background: #538d4e; color: #fff; }
+.tier-niche { background: #b59f3b; color: #fff; }
+.tier-rare { background: #8a6abf; color: #fff; }
+.tier-unicorn { background: #e74c3c; color: #fff; }
+
+/* === Guess History === */
+.guess-history h3 {
+    font-size: 0.9rem;
+    color: #818384;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+#guess-list {
+    list-style: none;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#guess-list li {
+    padding: 0.35rem 0;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.guess-hit {
+    color: #538d4e;
+}
+
+.guess-miss {
+    color: #565656;
+}
+
+.guess-icon {
+    font-weight: 700;
+    flex-shrink: 0;
+    width: 1rem;
+    text-align: center;
+}
+
+/* === Results Page === */
+.results-container {
+    text-align: center;
+}
+
+.score-summary {
+    margin: 1.5rem 0;
+}
+
+.score-big {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.score-label {
+    font-size: 1rem;
+    color: #818384;
+    margin-bottom: 0.75rem;
+}
+
+.score-bar-track {
+    height: 8px;
+    background: #3a3a3c;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.4rem;
+}
+
+.score-bar-fill {
+    height: 100%;
+    background: #538d4e;
+    border-radius: 4px;
+    transition: width 1s ease-out;
+}
+
+.score-pct {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #538d4e;
+}
+
+.results-section {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.results-section h3 {
+    font-size: 0.9rem;
+    color: #818384;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.result-def {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0.3rem;
+    border-radius: 4px;
+}
+
+.result-found {
+    background: rgba(83, 141, 78, 0.08);
+}
+
+.result-found .check {
+    color: #538d4e;
+    font-weight: 700;
+}
+
+.result-missed {
+    background: rgba(58, 58, 60, 0.5);
+}
+
+.result-missed .xmark {
+    color: #e74c3c;
+    font-weight: 700;
+}
+
+.guess-record {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0;
+    font-size: 0.9rem;
+}
+
+.results-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    margin: 2rem 0 1rem;
+}
+
+.next-word-note {
+    color: #565656;
+    font-size: 0.85rem;
+}
+
+/* === Animations === */
+.animate-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* === Responsive === */
+@media (max-width: 520px) {
+    .tile {
+        width: 40px;
+        height: 40px;
+        font-size: 1.3rem;
+    }
+
+    .tagline {
+        font-size: 1.3rem;
+    }
+
+    .timer {
+        font-size: 1.5rem;
+    }
+
+    main {
+        padding: 1rem 0.75rem;
+    }
+}

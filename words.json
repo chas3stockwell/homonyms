@@ -1,0 +1,357 @@
+{
+  "words": [
+    {
+      "id": 1,
+      "word": "bolt",
+      "definitions": [
+        {"id": "bolt_1", "tier": "Common", "definition": "A flash of lightning", "keywords": "thunder, storm, sky, electricity, strike, weather"},
+        {"id": "bolt_2", "tier": "Common", "definition": "A metal fastener", "keywords": "screw, nut, hardware, tool, steel, thread, tighten"},
+        {"id": "bolt_3", "tier": "Niche", "definition": "To run away suddenly", "keywords": "flee, escape, dash, sprint, leave, vamoose, scamper"},
+        {"id": "bolt_4", "tier": "Rare", "definition": "A roll of fabric", "keywords": "cloth, textile, sewing, material, silk, yardage, roll"},
+        {"id": "bolt_5", "tier": "Unicorn", "definition": "To swallow food whole", "keywords": "eat, gulp, wolf down, devour, gorge, unchewed"},
+        {"id": "bolt_6", "tier": "Unicorn", "definition": "Part of a plant (Botany)", "keywords": "seed, stem, flower, grow, premature, lettuce, onion"}
+      ]
+    },
+    {
+      "id": 2,
+      "word": "draft",
+      "definitions": [
+        {"id": "draft_1", "tier": "Common", "definition": "A preliminary writing", "keywords": "sketch, version, rough, essay, manuscript, edit"},
+        {"id": "draft_2", "tier": "Common", "definition": "A current of cool air", "keywords": "breeze, wind, chill, window, vent, airflow"},
+        {"id": "draft_3", "tier": "Niche", "definition": "Military conscription", "keywords": "army, war, enlist, selective service, soldier, call-up"},
+        {"id": "draft_4", "tier": "Rare", "definition": "Liquid from a cask", "keywords": "beer, ale, tap, keg, drink, pour, tavern"},
+        {"id": "draft_5", "tier": "Unicorn", "definition": "Depth of a ship's hull", "keywords": "waterline, boat, depth, keel, nautical, displacement"},
+        {"id": "draft_6", "tier": "Unicorn", "definition": "To pull a heavy load", "keywords": "horse, ox, hauling, traction, cart, beast of burden"}
+      ]
+    },
+    {
+      "id": 3,
+      "word": "mint",
+      "definitions": [
+        {"id": "mint_1", "tier": "Common", "definition": "A refreshing herb", "keywords": "leaf, plant, garden, mojito, breath, toothpaste"},
+        {"id": "mint_2", "tier": "Common", "definition": "Perfect condition", "keywords": "new, flawless, pristine, unused, original, fresh"},
+        {"id": "mint_3", "tier": "Niche", "definition": "A candy or sweet", "keywords": "gum, breath mint, peppermint, tic-tac, life-saver"},
+        {"id": "mint_4", "tier": "Rare", "definition": "Place where money is made", "keywords": "coins, currency, federal, factory, stamping, gold"},
+        {"id": "mint_5", "tier": "Unicorn", "definition": "A vast amount of money", "keywords": "fortune, wealth, rich, making a mint, luxury"}
+      ]
+    },
+    {
+      "id": 4,
+      "word": "scale",
+      "definitions": [
+        {"id": "scale_1", "tier": "Common", "definition": "Device to weigh objects", "keywords": "weight, pounds, kilograms, heavy, balance, bathroom"},
+        {"id": "scale_2", "tier": "Common", "definition": "To climb up something", "keywords": "mountain, wall, ascent, upward, ladder, summit"},
+        {"id": "scale_3", "tier": "Niche", "definition": "Hard plates on a fish or reptile", "keywords": "skin, armor, snake, trout, protection, scales"},
+        {"id": "scale_4", "tier": "Niche", "definition": "A sequence of musical notes", "keywords": "piano, octave, do-re-mi, major, minor, singing"},
+        {"id": "scale_5", "tier": "Rare", "definition": "Relative size or proportion", "keywords": "map, model, ratio, small-scale, dimensions, drawing"},
+        {"id": "scale_6", "tier": "Unicorn", "definition": "To remove flakes or buildup", "keywords": "teeth, plaque, dentist, scraping, cleaning, rust"}
+      ]
+    },
+    {
+      "id": 5,
+      "word": "pool",
+      "definitions": [
+        {"id": "pool_1", "tier": "Common", "definition": "A place for swimming", "keywords": "water, basin, lido, deep-end, diving, splash"},
+        {"id": "pool_2", "tier": "Common", "definition": "A game of billiards", "keywords": "cue, pockets, balls, table, eight-ball, chalk"},
+        {"id": "pool_3", "tier": "Niche", "definition": "To combine resources", "keywords": "money, group, share, collective, fund, joint-effort"},
+        {"id": "pool_4", "tier": "Rare", "definition": "A small patch of liquid", "keywords": "puddle, spill, blood, oil, leak, collection"},
+        {"id": "pool_5", "tier": "Unicorn", "definition": "A typing or labor group", "keywords": "office, steno, secretarial, staff, resource-pool"},
+        {"id": "pool_6", "tier": "Unicorn", "definition": "A betting syndicate", "keywords": "gambling, football-pool, stakes, wager, pot"}
+      ]
+    },
+    {
+      "id": 6,
+      "word": "strike",
+      "definitions": [
+        {"id": "strike_1", "tier": "Common", "definition": "To hit or deliver a blow", "keywords": "punch, smack, physical, impact, knock, beat"},
+        {"id": "strike_2", "tier": "Common", "definition": "A labor protest", "keywords": "work-stoppage, union, picket, strike-line, walkout"},
+        {"id": "strike_3", "tier": "Niche", "definition": "Baseball or bowling term", "keywords": "miss, swing, pins, gutter, pitcher, frame"},
+        {"id": "strike_4", "tier": "Rare", "definition": "To ignite a flame", "keywords": "match, spark, light, fire, friction, sulfur"},
+        {"id": "strike_5", "tier": "Unicorn", "definition": "To dismantle a stage set", "keywords": "theater, theater-wrap, cleanup, takedown, props"},
+        {"id": "strike_6", "tier": "Unicorn", "definition": "To discover a mineral", "keywords": "gold, oil, vein, digging, find, fortune"}
+      ]
+    },
+    {
+      "id": 7,
+      "word": "current",
+      "definitions": [
+        {"id": "current_1", "tier": "Common", "definition": "Happening right now", "keywords": "present, today, modern, contemporary, latest, news"},
+        {"id": "current_2", "tier": "Common", "definition": "Flow of water or air", "keywords": "river, tide, stream, wind, pull, undertow"},
+        {"id": "current_3", "tier": "Niche", "definition": "Flow of electricity", "keywords": "voltage, amps, wire, power, circuit, charge"},
+        {"id": "current_4", "tier": "Rare", "definition": "Generally accepted or known", "keywords": "opinion, thought, current thinking, popular"},
+        {"id": "current_5", "tier": "Unicorn", "definition": "Small dried fruit (Currant)", "keywords": "raisin, berry, scone, baking, grape, dried"},
+        {"id": "current_6", "tier": "Unicorn", "definition": "Movement of a crowd", "keywords": "flow, people, direction, momentum, mass"}
+      ]
+    },
+    {
+      "id": 8,
+      "word": "spring",
+      "definitions": [
+        {"id": "spring_1", "tier": "Common", "definition": "The season after winter", "keywords": "march, flowers, bloom, april, equinox, nature"},
+        {"id": "spring_2", "tier": "Common", "definition": "A coiled metal object", "keywords": "suspension, mattress, bounce, tension, elastic"},
+        {"id": "spring_3", "tier": "Niche", "definition": "To jump or leap", "keywords": "pounce, lunge, sudden, vault, hop"},
+        {"id": "spring_4", "tier": "Rare", "definition": "A natural water source", "keywords": "fountain, well, aquifer, geyser, fresh-water"},
+        {"id": "spring_5", "tier": "Unicorn", "definition": "To set a trap", "keywords": "trigger, mechanism, mouse-trap, release"},
+        {"id": "spring_6", "tier": "Unicorn", "definition": "To originate from", "keywords": "source, arise, spring forth, stem-from"}
+      ]
+    },
+    {
+      "id": 9,
+      "word": "table",
+      "definitions": [
+        {"id": "table_1", "tier": "Common", "definition": "Piece of furniture", "keywords": "desk, dining, kitchen, legs, wood, surface, stand"},
+        {"id": "table_2", "tier": "Common", "definition": "A data chart or grid", "keywords": "rows, columns, spreadsheet, excel, graph, info"},
+        {"id": "table_3", "tier": "Niche", "definition": "To postpone a discussion", "keywords": "delay, put off, sidle, defer, parliamentary, meeting"},
+        {"id": "table_4", "tier": "Rare", "definition": "Flat mountain or landform", "keywords": "plateau, mesa, flat-top, geography, formation"},
+        {"id": "table_5", "tier": "Unicorn", "definition": "Mathematical multiplication table", "keywords": "times-tables, math, learning, factors, school"},
+        {"id": "table_6", "tier": "Unicorn", "definition": "A gaming or gambling station", "keywords": "roulette, casino, dealer, felt, stakes, chips"}
+      ]
+    },
+    {
+      "id": 10,
+      "word": "point",
+      "definitions": [
+        {"id": "point_1", "tier": "Common", "definition": "To gesture or indicate direction", "keywords": "finger, show, direction, aim, gesture, look"},
+        {"id": "point_2", "tier": "Common", "definition": "The tip of a sharp object", "keywords": "needle, pencil, knife, end, sharp, apex, spike"},
+        {"id": "point_3", "tier": "Niche", "definition": "Scoring unit in a game", "keywords": "points, goal, basket, tally, score, win"},
+        {"id": "point_4", "tier": "Rare", "definition": "A specific moment in time", "keywords": "instant, juncture, period, at this point, stage"},
+        {"id": "point_5", "tier": "Unicorn", "definition": "A piece of land jutting into water", "keywords": "peninsula, cape, headland, coast, promontory"},
+        {"id": "point_6", "tier": "Unicorn", "definition": "Measurement for font size", "keywords": "typography, pica, print, text-size, 12pt, inch"}
+      ]
+    },
+    {
+      "id": 11,
+      "word": "ball",
+      "definitions": [
+        {"id": "ball_1", "tier": "Common", "definition": "Spherical sports object", "keywords": "soccer, baseball, round, play, toy, sphere"},
+        {"id": "ball_2", "tier": "Common", "definition": "A lavish formal dance", "keywords": "gala, debutante, gown, Cinderella, waltz, party"},
+        {"id": "ball_3", "tier": "Niche", "definition": "Pitch outside the strike zone (baseball)", "keywords": "baseball-walk, umpire, count, outside, pitch"},
+        {"id": "ball_4", "tier": "Rare", "definition": "Part of the foot or hand", "keywords": "sole, thumb, anatomy, padding, arch, step"},
+        {"id": "ball_5", "tier": "Unicorn", "definition": "Projectile for a firearm", "keywords": "musket, cannon, bullet, ammo, black-powder"},
+        {"id": "ball_6", "tier": "Unicorn", "definition": "A ball of yarn or string", "keywords": "clew, twine, wool, roll, lump, bundle"}
+      ]
+    },
+    {
+      "id": 12,
+      "word": "bank",
+      "definitions": [
+        {"id": "bank_1", "tier": "Common", "definition": "Financial institution", "keywords": "money, cash, teller, vault, deposit, loan"},
+        {"id": "bank_2", "tier": "Common", "definition": "The side of a river", "keywords": "shore, edge, water, mud, embankment, slope"},
+        {"id": "bank_3", "tier": "Niche", "definition": "A row of objects", "keywords": "switches, lights, panel, console, set, array"},
+        {"id": "bank_4", "tier": "Rare", "definition": "To tilt during a turn", "keywords": "airplane, curve, lean, angle, flight, banking"},
+        {"id": "bank_5", "tier": "Unicorn", "definition": "To rely or depend on", "keywords": "trust, bank on it, count on, bet, believe"},
+        {"id": "bank_6", "tier": "Unicorn", "definition": "A reserve of resources", "keywords": "blood-bank, data-bank, seed, storage, supply"}
+      ]
+    },
+    {
+      "id": 13,
+      "word": "case",
+      "definitions": [
+        {"id": "case_1", "tier": "Common", "definition": "A protective container", "keywords": "box, shell, housing, phone-case, sleeve, cover"},
+        {"id": "case_2", "tier": "Common", "definition": "A legal or police matter", "keywords": "lawsuit, trial, investigation, detective, court"},
+        {"id": "case_3", "tier": "Niche", "definition": "A medical patient or instance", "keywords": "illness, disease, flu, patient, occurrence, sample"},
+        {"id": "case_4", "tier": "Rare", "definition": "A box of 12 or 24 items", "keywords": "bulk, soda, beer, unit, dozen, quantity, purchase"},
+        {"id": "case_5", "tier": "Unicorn", "definition": "To scout or examine for a crime", "keywords": "survey, case the joint, watch, prep, robbery"},
+        {"id": "case_6", "tier": "Unicorn", "definition": "Grammatical category", "keywords": "nominative, accusative, syntax, linguistics, form"}
+      ]
+    },
+    {
+      "id": 14,
+      "word": "bar",
+      "definitions": [
+        {"id": "bar_1", "tier": "Common", "definition": "A place to buy drinks", "keywords": "pub, tavern, saloon, counter, alcohol, bartender"},
+        {"id": "bar_2", "tier": "Common", "definition": "A long solid object", "keywords": "rod, pole, iron, steel, block, chocolate, soap"},
+        {"id": "bar_3", "tier": "Niche", "definition": "To block or prevent", "keywords": "obstruct, ban, forbid, prohibit, exclude, barricade"},
+        {"id": "bar_4", "tier": "Niche", "definition": "The legal profession", "keywords": "lawyer, attorney, courtroom, exam, The Bar, counsel"},
+        {"id": "bar_5", "tier": "Rare", "definition": "A unit of music", "keywords": "measure, rhythm, beat, staff, sheet music, timing"},
+        {"id": "bar_6", "tier": "Unicorn", "definition": "A unit of pressure", "keywords": "physics, weather, barometer, metric, pascal, force"}
+      ]
+    },
+    {
+      "id": 15,
+      "word": "cell",
+      "definitions": [
+        {"id": "cell_1", "tier": "Common", "definition": "Biological unit of life", "keywords": "organism, microscopic, skin, blood, nucleus, biology"},
+        {"id": "cell_2", "tier": "Common", "definition": "A prison room", "keywords": "jail, inmate, confinement, bars, lockup, prisoner"},
+        {"id": "cell_3", "tier": "Niche", "definition": "A mobile phone", "keywords": "cellphone, call, mobile, wireless, device, telecom"},
+        {"id": "cell_4", "tier": "Niche", "definition": "A spreadsheet box", "keywords": "Excel, grid, data, column, row, entry, software"},
+        {"id": "cell_5", "tier": "Rare", "definition": "An electric battery unit", "keywords": "energy, power, fuel-cell, electrolyte, solar, storage"},
+        {"id": "cell_6", "tier": "Unicorn", "definition": "A small extremist group", "keywords": "underground, sleeper-cell, terrorist, clandestine"}
+      ]
+    },
+    {
+      "id": 16,
+      "word": "mask",
+      "definitions": [
+        {"id": "mask_1", "tier": "Common", "definition": "A face covering", "keywords": "costume, disguise, protection, surgical, halloween"},
+        {"id": "mask_2", "tier": "Common", "definition": "To hide or conceal", "keywords": "cover up, camouflage, obscure, veil, disguise"},
+        {"id": "mask_3", "tier": "Niche", "definition": "A beauty treatment", "keywords": "skincare, facial, mud, spa, pores, clay"},
+        {"id": "mask_4", "tier": "Rare", "definition": "To block out a scent or taste", "keywords": "flavor, seasoning, neutralize, perfume, odor"},
+        {"id": "mask_5", "tier": "Unicorn", "definition": "Digital editing layer (Photoshop)", "keywords": "layer, transparency, selection, cutout, graphics"},
+        {"id": "mask_6", "tier": "Unicorn", "definition": "A fencing protector", "keywords": "sword, sport, mesh, foil, epee, helmet"}
+      ]
+    },
+    {
+      "id": 17,
+      "word": "mouth",
+      "definitions": [
+        {"id": "mouth_1", "tier": "Common", "definition": "Part of the face", "keywords": "teeth, lips, eating, speak, oral, tongue"},
+        {"id": "mouth_2", "tier": "Common", "definition": "Opening of a river", "keywords": "estuary, delta, sea, flow, exit, outflow"},
+        {"id": "mouth_3", "tier": "Niche", "definition": "Opening of a jar or bottle", "keywords": "rim, top, lid-area, neck, container"},
+        {"id": "mouth_4", "tier": "Rare", "definition": "To move lips without sound", "keywords": "mimic, silent, lip-sync, mouthing words"},
+        {"id": "mouth_5", "tier": "Unicorn", "definition": "Entrance to a cave or tunnel", "keywords": "opening, portal, cavern, abyss, maw"},
+        {"id": "mouth_6", "tier": "Unicorn", "definition": "Insolent talk (Slang)", "keywords": "sass, attitude, talking back, cheeky, mouthing off"}
+      ]
+    },
+    {
+      "id": 18,
+      "word": "order",
+      "definitions": [
+        {"id": "order_1", "tier": "Common", "definition": "Request for food or goods", "keywords": "restaurant, purchase, shipping, buy, menu, delivery"},
+        {"id": "order_2", "tier": "Common", "definition": "Neatness or organization", "keywords": "arrangement, tidy, sequence, structure, method"},
+        {"id": "order_3", "tier": "Niche", "definition": "A command or instruction", "keywords": "directive, boss, military, law, decree, tell"},
+        {"id": "order_4", "tier": "Rare", "definition": "A social or religious class", "keywords": "monks, knighthood, fraternity, Order of X, society"},
+        {"id": "order_5", "tier": "Unicorn", "definition": "Biological classification", "keywords": "taxonomy, family, genus, species, kingdom"},
+        {"id": "order_6", "tier": "Unicorn", "definition": "A courtroom demand", "keywords": "judge, Order in the court, gavel, silence, ruling"}
+      ]
+    },
+    {
+      "id": 19,
+      "word": "mine",
+      "definitions": [
+        {"id": "mine_1", "tier": "Common", "definition": "Personal possession (pronoun)", "keywords": "my, belongs to me, ownership, pronoun, self"},
+        {"id": "mine_2", "tier": "Common", "definition": "A hole for digging ore", "keywords": "coal, gold, tunnel, excavation, quarry, shaft"},
+        {"id": "mine_3", "tier": "Niche", "definition": "An explosive device", "keywords": "landmine, naval mine, weapon, bomb, trigger"},
+        {"id": "mine_4", "tier": "Rare", "definition": "To extract information", "keywords": "data-mining, research, digging for facts, analyze"},
+        {"id": "mine_5", "tier": "Unicorn", "definition": "To burrow (Animals/Insects)", "keywords": "mole, tunneling, pests, leaves, leaf miner"}
+      ]
+    },
+    {
+      "id": 20,
+      "word": "key",
+      "definitions": [
+        {"id": "key_1", "tier": "Common", "definition": "Metal lock opener", "keywords": "latch, bolt, unlock, house key, car key, skeleton"},
+        {"id": "key_2", "tier": "Common", "definition": "Crucial or important", "keywords": "essential, primary, main, vital, the key factor"},
+        {"id": "key_3", "tier": "Niche", "definition": "Musical pitch or scale", "keywords": "major, minor, C-major, sharp, flat, tonic, tune"},
+        {"id": "key_4", "tier": "Niche", "definition": "Computer or typewriter button", "keywords": "keyboard, enter, shift, typing, peripheral"},
+        {"id": "key_5", "tier": "Rare", "definition": "A low-lying island", "keywords": "cay, Florida Keys, reef, coral, islet, tropical"},
+        {"id": "key_6", "tier": "Unicorn", "definition": "A map legend", "keywords": "index, guide, symbols, reference, chart-key"}
+      ]
+    },
+    {
+      "id": 21,
+      "word": "school",
+      "definitions": [
+        {"id": "school_1", "tier": "Common", "definition": "Place of education", "keywords": "college, university, classroom, learning, teacher"},
+        {"id": "school_2", "tier": "Common", "definition": "A group of fish", "keywords": "aquatic, swimming together, shoal, marine, pod"},
+        {"id": "school_3", "tier": "Niche", "definition": "To train or discipline", "keywords": "instruct, schooling someone, educate, drill"},
+        {"id": "school_4", "tier": "Rare", "definition": "A style of thought or art", "keywords": "movement, school of thought, impressionism, theory"},
+        {"id": "school_5", "tier": "Unicorn", "definition": "To win decisively (Slang)", "keywords": "dominated, got schooled, defeated, outplayed"}
+      ]
+    },
+    {
+      "id": 22,
+      "word": "watch",
+      "definitions": [
+        {"id": "watch_1", "tier": "Common", "definition": "To look at or observe", "keywords": "view, see, monitor, spectate, stare, witness"},
+        {"id": "watch_2", "tier": "Common", "definition": "A timepiece on the wrist", "keywords": "clock, rolex, digital, hands, ticking, chronometer"},
+        {"id": "watch_3", "tier": "Niche", "definition": "A shift or guard duty", "keywords": "nightwatch, patrol, lookout, surveillance, sentry"},
+        {"id": "watch_4", "tier": "Rare", "definition": "A grouping of sailors", "keywords": "nautical, shift, crew-rotation, starboard-watch"},
+        {"id": "watch_5", "tier": "Unicorn", "definition": "A ritual vigil or wake", "keywords": "vigil, staying awake, mourning, death-watch"}
+      ]
+    },
+    {
+      "id": 23,
+      "word": "dress",
+      "definitions": [
+        {"id": "dress_1", "tier": "Common", "definition": "A one-piece garment", "keywords": "skirt, gown, frock, clothing, apparel, fashion"},
+        {"id": "dress_2", "tier": "Common", "definition": "To put on clothes", "keywords": "get ready, attire, outfit, wear"},
+        {"id": "dress_3", "tier": "Niche", "definition": "To prepare food (salad or meat)", "keywords": "dressing, sauce, oil, garnish, pluck, butcher"},
+        {"id": "dress_4", "tier": "Rare", "definition": "To treat a wound", "keywords": "bandage, medical, gauze, wrap, clean, sterile"},
+        {"id": "dress_5", "tier": "Unicorn", "definition": "To align in a straight line", "keywords": "military-drill, dress right, formation, parade"},
+        {"id": "dress_6", "tier": "Unicorn", "definition": "Window display (Retail)", "keywords": "visuals, storefront, window dressing, styling"}
+      ]
+    },
+    {
+      "id": 24,
+      "word": "game",
+      "definitions": [
+        {"id": "game_1", "tier": "Common", "definition": "A recreational activity", "keywords": "play, sport, match, fun, competition, contest"},
+        {"id": "game_2", "tier": "Common", "definition": "Wild animals hunted for food", "keywords": "venison, meat, hunting, forest, pheasant, deer"},
+        {"id": "game_3", "tier": "Niche", "definition": "A single unit of play (Tennis)", "keywords": "set, match, points, deuce, frame, round"},
+        {"id": "game_4", "tier": "Rare", "definition": "To manipulate a system", "keywords": "exploit, cheat, game the system, loophole"},
+        {"id": "game_5", "tier": "Unicorn", "definition": "Willing or ready for a task", "keywords": "brave, courageous, game for it, plucky, spirited"},
+        {"id": "game_6", "tier": "Unicorn", "definition": "Lame or injured (e.g. game leg)", "keywords": "limp, crippled, hurt, stiff, walking, disability"}
+      ]
+    },
+    {
+      "id": 25,
+      "word": "sound",
+      "definitions": [
+        {"id": "sound_1", "tier": "Common", "definition": "Something heard", "keywords": "noise, audio, volume, ear, acoustic, listen"},
+        {"id": "sound_2", "tier": "Common", "definition": "Solid or healthy", "keywords": "safe, stable, reliable, sound mind, sturdy"},
+        {"id": "sound_3", "tier": "Niche", "definition": "A long, wide ocean inlet", "keywords": "bay, geography, fjord, strait, water, channel"},
+        {"id": "sound_4", "tier": "Rare", "definition": "To measure depth of water", "keywords": "plumb, nautical, lead-line, sonar, deep-sea"},
+        {"id": "sound_5", "tier": "Unicorn", "definition": "Deep or undisturbed (Sleep)", "keywords": "rest, heavy, REM, sound asleep, peaceful"}
+      ]
+    },
+    {
+      "id": 26,
+      "word": "club",
+      "definitions": [
+        {"id": "club_1", "tier": "Common", "definition": "A social group or organization", "keywords": "association, membership, hobby, team, society"},
+        {"id": "club_2", "tier": "Common", "definition": "A heavy hitting weapon", "keywords": "baton, bludgeon, mace, stick, caveman, strike"},
+        {"id": "club_3", "tier": "Niche", "definition": "A suit in a deck of cards", "keywords": "spades, hearts, diamonds, clover, gambling"},
+        {"id": "club_4", "tier": "Rare", "definition": "Nightlife venue", "keywords": "disco, dancing, music, rave, bar, nightlife"},
+        {"id": "club_5", "tier": "Unicorn", "definition": "To combine resources (Verb)", "keywords": "pool, club together, share costs, joint"},
+        {"id": "club_6", "tier": "Unicorn", "definition": "Golf equipment", "keywords": "iron, wood, driver, putter, wedge, fairway"}
+      ]
+    },
+    {
+      "id": 27,
+      "word": "arms",
+      "definitions": [
+        {"id": "arms_1", "tier": "Common", "definition": "Upper limbs of the body", "keywords": "hands, shoulders, biceps, reach, anatomy"},
+        {"id": "arms_2", "tier": "Common", "definition": "Weapons or weaponry", "keywords": "guns, rifles, munitions, fire-arms, arsenal"},
+        {"id": "arms_3", "tier": "Niche", "definition": "Military branches", "keywords": "combat, navy, air force, call to arms"},
+        {"id": "arms_4", "tier": "Rare", "definition": "Heraldry or family crest", "keywords": "coat of arms, shield, genealogy, emblem, banner"},
+        {"id": "arms_5", "tier": "Unicorn", "definition": "Side pieces of a chair", "keywords": "furniture, support, rest, seating, frame"}
+      ]
+    },
+    {
+      "id": 28,
+      "word": "hand",
+      "definitions": [
+        {"id": "hand_1", "tier": "Common", "definition": "Part of the arm", "keywords": "fingers, palm, wrist, touch, grab"},
+        {"id": "hand_2", "tier": "Common", "definition": "To pass or give", "keywords": "deliver, hand over, transfer, bestow"},
+        {"id": "hand_3", "tier": "Niche", "definition": "Cards held by a player", "keywords": "poker, deal, deck, hidden, bluff"},
+        {"id": "hand_4", "tier": "Rare", "definition": "A unit of measurement for horses", "keywords": "height, equestrian, 4-inches, equine, size"},
+        {"id": "hand_5", "tier": "Unicorn", "definition": "A worker or sailor", "keywords": "deckhand, laborer, staff, all hands, crew"},
+        {"id": "hand_6", "tier": "Unicorn", "definition": "Applause", "keywords": "clapping, give a hand, ovation, cheers"}
+      ]
+    },
+    {
+      "id": 29,
+      "word": "light",
+      "definitions": [
+        {"id": "light_1", "tier": "Common", "definition": "Something that illuminates", "keywords": "lamp, sun, bulb, brightness, glow"},
+        {"id": "light_2", "tier": "Common", "definition": "Not heavy (Weight)", "keywords": "weightless, airy, feather, portable, slim"},
+        {"id": "light_3", "tier": "Niche", "definition": "Pale in color", "keywords": "soft, pastel, tint, blonde, washed-out"},
+        {"id": "light_4", "tier": "Rare", "definition": "To ignite or set fire", "keywords": "flame, kindle, match, spark, burning"},
+        {"id": "light_5", "tier": "Unicorn", "definition": "To land or settle (e.g. alight)", "keywords": "perch, bird, descend, light upon, landing"}
+      ]
+    },
+    {
+      "id": 30,
+      "word": "rock",
+      "definitions": [
+        {"id": "rock_1", "tier": "Common", "definition": "A stone or mineral", "keywords": "boulder, pebble, geology, earth, solid"},
+        {"id": "rock_2", "tier": "Common", "definition": "A genre of music", "keywords": "guitar, band, roll, heavy, loud, concert"},
+        {"id": "rock_3", "tier": "Niche", "definition": "To move back and forth", "keywords": "cradle, swing, sway, rhythm, soothing"},
+        {"id": "rock_4", "tier": "Rare", "definition": "A large diamond (Slang)", "keywords": "jewelry, ice, engagement, ring, gemstone"},
+        {"id": "rock_5", "tier": "Unicorn", "definition": "To shock or unsettle", "keywords": "shake, rocked the world, disturb, jarring"},
+        {"id": "rock_6", "tier": "Unicorn", "definition": "Hard candy (British)", "keywords": "sweets, seaside, sugar-stick, peppermint"}
+      ]
+    }
+  ]
+}
