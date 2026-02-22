@@ -14,12 +14,13 @@ def load_words():
     return _words_cache
 
 
-def get_daily_word():
-    """Select today's word deterministically. Same word for all players."""
+def get_daily_word(offset=0):
+    """Select today's word deterministically. Same word for all players.
+    offset > 0 gives bonus words beyond the daily one."""
     words = load_words()
     today = date.today().isoformat()
     hash_val = int(hashlib.sha256(today.encode()).hexdigest(), 16)
-    index = hash_val % len(words)
+    index = (hash_val % len(words) + offset) % len(words)
     return words[index]
 
 

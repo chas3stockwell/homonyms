@@ -4,7 +4,11 @@
 <div class="index-container">
     <h1 class="tagline">How many meanings<br>can you think of?</h1>
 
+    {% if word_offset > 0 %}
+    <p class="puzzle-info">Bonus Word #{{ word_offset }}</p>
+    {% else %}
     <p class="puzzle-info">Puzzle #{{ puzzle_number }}</p>
+    {% endif %}
 
     <div class="word-preview">
         {% for letter in word %}

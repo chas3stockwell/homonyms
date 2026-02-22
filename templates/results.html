@@ -66,6 +66,9 @@
             data-results="{% for d in matched_definitions %}+{% endfor %}{% for d in missed_definitions %}-{% endfor %}">
             Share
         </button>
+        <form action="/next-word" method="post" style="display:inline">
+            <button type="submit" class="btn btn-secondary">Try Another Word</button>
+        </form>
         <a href="/" class="btn btn-secondary">Home</a>
     </div>
 

@@ -2,7 +2,7 @@ from datetime import datetime
 
 from flask import Flask, jsonify, redirect, render_template, request, session, url_for
 
-from config import GAME_DURATION_SECONDS, SECRET_KEY
+from config import ALLOW_UNLIMITED_PLAYS, GAME_DURATION_SECONDS, SECRET_KEY
 from game import calculate_score, get_daily_word, get_word_number
 from matcher import check_guess
 
@@ -10,44 +10,56 @@ app = Flask(__name__)
 app.secret_key = SECRET_KEY
 
 
+def get_current_word():
+    return get_daily_word(session.get("word_offset", 0))
+
 @app.route("/")
 def index():
-    word_data = get_daily_word()
+    word_data = get_current_word()
     definition_count = len(word_data["definitions"])
     already_played = (
-        session.get("last_played_word_id") == word_data["id"]
+        not ALLOW_UNLIMITED_PLAYS
+        and session.get("last_played_word_id") == word_data["id"]
         and session.get("game_finished")
     )
+    word_offset = session.get("word_offset", 0)
     return render_template(
         "index.html",
         word=word_data["word"],
         definition_count=definition_count,
         already_played=already_played,
         puzzle_number=get_word_number(),
+        word_offset=word_offset,
     )
 
 
 @app.route("/play")
 def play():
-    word_data = get_daily_word()
+    word_data = get_current_word()
 
-    # Already finished today - go to results
+    # Already finished today - go to results (unless unlimited plays is on)
     if (
-        session.get("last_played_word_id") == word_data["id"]
+        not ALLOW_UNLIMITED_PLAYS
+        and session.get("last_played_word_id") == word_data["id"]
         and session.get("game_finished")
     ):
         return redirect(url_for("results"))
 
     # Initialize new game session for today's word
     if session.get("current_word_id") != word_data["id"]:
+        
         session["current_word_id"] = word_data["id"]
         session["matched_ids"] = []
         session["guesses"] = []
         session["game_start"] = datetime.utcnow().timestamp()
         session["game_finished"] = False
 
-    end_time = session["game_start"] + GAME_DURATION_SECONDS
-    remaining = max(0, end_time - datetime.utcnow().timestamp())
+        print(session['guesses'])
+
+
+
+    end_time = GAME_DURATION_SECONDS
+    remaining = max(0, end_time)
 
     if remaining <= 0:
         session["game_finished"] = True
@@ -71,7 +83,7 @@ def play():
 
 @app.route("/guess", methods=["POST"])
 def guess():
-    word_data = get_daily_word()
+    word_data = get_current_word()
 
     if session.get("game_finished") or session.get("current_word_id") != word_data["id"]:
         return jsonify({"error": "No active game"}), 400
@@ -134,7 +146,7 @@ def guess():
 
 @app.route("/time-up", methods=["POST"])
 def time_up():
-    word_data = get_daily_word()
+    word_data = get_current_word()
     session["game_finished"] = True
     session["last_played_word_id"] = word_data["id"]
     return jsonify({"redirect": url_for("results")})
@@ -142,7 +154,7 @@ def time_up():
 
 @app.route("/results")
 def results():
-    word_data = get_daily_word()
+    word_data = get_current_word()
 
     if session.get("current_word_id") != word_data["id"]:
         return redirect(url_for("index"))
@@ -158,6 +170,7 @@ def results():
 
     score = calculate_score(len(matched_defs), len(all_defs))
 
+    word_offset = session.get("word_offset", 0)
     return render_template(
         "results.html",
         word=word_data["word"],
@@ -168,7 +181,19 @@ def results():
         total_count=len(all_defs),
         guesses=session.get("guesses", []),
         puzzle_number=get_word_number(),
+        word_offset=word_offset,
     )
+
+
+@app.route("/next-word", methods=["POST"])
+def next_word():
+    session["word_offset"] = session.get("word_offset", 0) + 1
+    session["current_word_id"] = None
+    session["matched_ids"] = []
+    session["guesses"] = []
+    session["game_start"] = None
+    session["game_finished"] = False
+    return redirect(url_for("index"))
 
 
 if __name__ == "__main__":
