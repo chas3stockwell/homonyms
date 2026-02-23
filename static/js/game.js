@@ -69,8 +69,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     return;
                 }
 
-                addGuessToHistory(guess, data);
-
                 if (data.matched) {
                     addMatchedDefinition(data.matched_definition);
                     progressEl.textContent =
@@ -80,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         input.classList.remove("flash-success");
                     }, 600);
                 } else {
+                    addGuessToHistory(guess);
                     input.classList.add("flash-fail");
                     setTimeout(function () {
                         input.classList.remove("flash-fail");
@@ -105,11 +104,11 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     });
 
-    function addGuessToHistory(text, data) {
+    function addGuessToHistory(text) {
         var li = document.createElement("li");
-        li.className = data.matched ? "guess-hit" : "guess-miss";
+        li.className = "guess-miss";
         li.innerHTML =
-            '<span class="guess-icon">' + (data.matched ? "&#10003;" : "&#10007;") + "</span> " +
+            '<span class="guess-icon">&#10007;</span> ' +
             '<span class="guess-text">"' + escapeHtml(text) + '"</span>';
         guessList.prepend(li);
     }

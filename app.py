@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 
 from flask import Flask, jsonify, redirect, render_template, request, session, url_for
 
@@ -46,20 +46,17 @@ def play():
         return redirect(url_for("results"))
 
     # Initialize new game session for today's word
-    if session.get("current_word_id") != word_data["id"]:
-        
+    new_word = session.get("current_word_id") != word_data["id"]
+    replay = ALLOW_UNLIMITED_PLAYS and session.get("game_finished")
+    if new_word or replay:
         session["current_word_id"] = word_data["id"]
         session["matched_ids"] = []
         session["guesses"] = []
-        session["game_start"] = datetime.utcnow().timestamp()
+        session["game_start"] = datetime.now(timezone.utc).timestamp()
         session["game_finished"] = False
 
-        print(session['guesses'])
-
-
-
-    end_time = GAME_DURATION_SECONDS
-    remaining = max(0, end_time)
+    end_time = session["game_start"] + GAME_DURATION_SECONDS
+    remaining = max(0, end_time - datetime.now(timezone.utc).timestamp())
 
     if remaining <= 0:
         session["game_finished"] = True
@@ -78,6 +75,7 @@ def play():
         matched_count=len(matched_defs),
         end_timestamp=end_time,
         puzzle_number=get_word_number(),
+        guesses=session.get("guesses", []),
     )
 
 
@@ -89,7 +87,7 @@ def guess():
         return jsonify({"error": "No active game"}), 400
 
     end_time = session["game_start"] + GAME_DURATION_SECONDS
-    if datetime.utcnow().timestamp() > end_time:
+    if datetime.now(timezone.utc).timestamp() > end_time:
         session["game_finished"] = True
         session["last_played_word_id"] = word_data["id"]
         return jsonify({"error": "Time is up", "redirect": url_for("results")})
@@ -99,6 +97,7 @@ def guess():
         return jsonify({"error": "Empty guess"}), 400
     if len(guess_text) > 200:
         return jsonify({"error": "Guess too long"}), 400
+
 
     matched_ids = set(session.get("matched_ids", []))
     unmatched = [d for d in word_data["definitions"] if d["id"] not in matched_ids]
