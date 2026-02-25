@@ -356,6 +356,96 @@ main {
     text-align: center;
 }
 
+/* === Word Tabs === */
+.word-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    justify-content: center;
+}
+
+.word-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border: 2px solid #3a3a3c;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #818384;
+    background: #1a1a1b;
+    transition: border-color 0.15s, color 0.15s;
+    min-width: 80px;
+}
+
+.word-tab:hover {
+    border-color: #565758;
+    color: #d7dadc;
+}
+
+.word-tab.active {
+    border-color: #538d4e;
+    color: #d7dadc;
+    background: #1e2a1e;
+}
+
+.tab-word {
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+}
+
+.tab-progress {
+    font-size: 0.75rem;
+    color: #818384;
+    margin-top: 0.15rem;
+}
+
+.word-tab.active .tab-progress {
+    color: #538d4e;
+}
+
+/* === Daily 3 Label === */
+.daily-three-label {
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #d7dadc;
+    margin-bottom: 2rem;
+}
+
+/* === Index Word Previews === */
+.index-words {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: center;
+    margin: 1.25rem 0;
+}
+
+.index-word-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* === Results Word Sections === */
+.results-word-section {
+    margin: 2rem 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid #3a3a3c;
+}
+
+.results-word-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
 /* === Results Page === */
 .results-container {
     text-align: center;

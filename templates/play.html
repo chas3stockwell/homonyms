@@ -5,12 +5,23 @@
 {% block content %}
 <div class="play-container">
     <div class="play-header">
-        <span class="progress" id="progress">{{ matched_count }}/{{ total_definitions }} found</span>
+        <span class="progress" id="progress">{{ active_word.matched_count }}/{{ active_word.total_definitions }} found</span>
         <span class="timer" id="timer">3:00</span>
     </div>
 
+    <p class="daily-three-label">Daily 3</p>
+
+    <div class="word-tabs">
+        {% for w in words_display %}
+        <a href="/play?word={{ loop.index0 }}" class="word-tab{% if w.is_active %} active{% endif %}">
+            <span class="tab-word">{{ w.word|upper }}</span>
+            <span class="tab-progress">{{ w.matched_count }}/{{ w.total_definitions }}</span>
+        </a>
+        {% endfor %}
+    </div>
+
     <div class="word-display">
-        {% for letter in word %}
+        {% for letter in active_word.word %}
         <span class="tile">{{ letter }}</span>
         {% endfor %}
     </div>
@@ -29,7 +40,7 @@
 
     <div class="definitions-section">
         <div id="matched-list">
-            {% for d in matched_definitions %}
+            {% for d in active_word.matched_definitions %}
             <div class="matched-def">
                 <span class="check">&#10003;</span>
                 <span class="def-text">{{ d.definition }}</span>
@@ -39,7 +50,7 @@
         </div>
 
         <div id="placeholders">
-            {% for i in range(total_definitions - matched_count) %}
+            {% for i in range(active_word.total_definitions - active_word.matched_count) %}
             <div class="def-placeholder">
                 <span class="qmark">?</span>
                 <span class="placeholder-text">Unknown meaning</span>
@@ -51,7 +62,7 @@
     <div class="guess-history">
         <h3>Your Guesses</h3>
         <ul id="guess-list">
-            {% for g in guesses|reverse %}
+            {% for g in active_word.guesses|reverse %}
             {% if not g.matched %}
             <li class="guess-miss">
                 <span class="guess-icon">✗</span>

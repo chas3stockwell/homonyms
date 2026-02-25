@@ -2,6 +2,8 @@ import json
 import hashlib
 from datetime import date
 
+DAILY_WORD_COUNT = 3
+
 _words_cache = None
 
 
@@ -14,14 +16,14 @@ def load_words():
     return _words_cache
 
 
-def get_daily_word(offset=0):
-    """Select today's word deterministically. Same word for all players.
-    offset > 0 gives bonus words beyond the daily one."""
+def get_daily_words(offset=0):
+    """Return today's set of DAILY_WORD_COUNT words deterministically."""
     words = load_words()
     today = date.today().isoformat()
     hash_val = int(hashlib.sha256(today.encode()).hexdigest(), 16)
-    index = (hash_val % len(words) + offset) % len(words)
-    return words[index]
+    base_index = hash_val % len(words)
+    start = (base_index + offset * DAILY_WORD_COUNT) % len(words)
+    return [words[(start + i) % len(words)] for i in range(DAILY_WORD_COUNT)]
 
 
 def get_word_number():

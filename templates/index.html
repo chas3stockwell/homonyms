@@ -5,18 +5,25 @@
     <h1 class="tagline">How many meanings<br>can you think of?</h1>
 
     {% if word_offset > 0 %}
-    <p class="puzzle-info">Bonus Word #{{ word_offset }}</p>
+    <p class="puzzle-info">Bonus Round #{{ word_offset }}</p>
     {% else %}
     <p class="puzzle-info">Puzzle #{{ puzzle_number }}</p>
     {% endif %}
 
-    <div class="word-preview">
-        {% for letter in word %}
-        <span class="tile">{{ letter }}</span>
+    <p class="daily-three-label">Daily 3</p>
+
+    <div class="index-words">
+        {% for w in words_data %}
+        <div class="index-word-preview">
+            <div class="word-preview">
+                {% for letter in w.word %}
+                <span class="tile">{{ letter }}</span>
+                {% endfor %}
+            </div>
+            <p class="def-count"><strong>{{ w.definitions|length }}</strong> meanings</p>
+        </div>
         {% endfor %}
     </div>
-
-    <p class="def-count">This word has <strong>{{ definition_count }}</strong> meanings</p>
 
     {% if already_played %}
     <a href="/results" class="btn btn-secondary">See Your Results</a>
@@ -28,9 +35,10 @@
     <div class="how-to-play">
         <h3>How to Play</h3>
         <ul>
-            <li>You'll be shown a word with multiple meanings</li>
+            <li>You'll get 3 words, each with multiple meanings</li>
+            <li>Switch between words using the tabs at the top</li>
             <li>Type a definition or description of each meaning you can think of</li>
-            <li>You have <strong>3 minutes</strong> to find as many as you can</li>
+            <li>You have <strong>3 minutes</strong> across all three words</li>
             <li>Your answer doesn't need to be exact &mdash; just show you know the meaning</li>
         </ul>
     </div>

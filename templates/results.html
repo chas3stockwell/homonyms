@@ -2,89 +2,91 @@
 
 {% block content %}
 <div class="results-container">
+    {% if word_offset > 0 %}
+    <p class="puzzle-info">Bonus Round #{{ word_offset }}</p>
+    {% else %}
     <p class="puzzle-info">Puzzle #{{ puzzle_number }}</p>
-
-    <div class="word-display">
-        {% for letter in word %}
-        <span class="tile">{{ letter }}</span>
-        {% endfor %}
-    </div>
+    {% endif %}
 
     <div class="score-summary">
-        <p class="score-big">{{ matched_count }} / {{ total_count }}</p>
+        <p class="score-big">{{ total_matched }} / {{ total_defs }}</p>
         <p class="score-label">meanings found</p>
         <div class="score-bar-track">
-            <div class="score-bar-fill" style="width: {{ score }}%"></div>
+            <div class="score-bar-fill" style="width: {{ overall_score }}%"></div>
         </div>
-        <p class="score-pct">{{ score }}%</p>
+        <p class="score-pct">{{ overall_score }}%</p>
+        <p class="score-guesses">{{ guess_count }} guess{{ 'es' if guess_count != 1 else '' }}</p>
     </div>
 
-    {% if matched_definitions %}
-    <div class="results-section found-section">
-        <h3>Found</h3>
-        {% for d in matched_definitions %}
-        <div class="result-def result-found">
-            <span class="check">&#10003;</span>
-            <span class="def-text">{{ d.definition }}</span>
-            <span class="tier-badge tier-{{ d.tier|lower }}">{{ d.tier }}</span>
-        </div>
-        {% endfor %}
-    </div>
-    {% endif %}
+    {% for wr in words_results %}
+    <div class="results-word-section">
+        <h2 class="results-word-title">{{ wr.word|upper }}</h2>
 
-    {% if missed_definitions %}
-    <div class="results-section missed-section">
-        <h3>Missed</h3>
-        {% for d in missed_definitions %}
-        <div class="result-def result-missed">
-            <span class="xmark">&#10007;</span>
-            <span class="def-text">{{ d.definition }}</span>
-            <span class="tier-badge tier-{{ d.tier|lower }}">{{ d.tier }}</span>
+        {% if wr.matched_definitions %}
+        <div class="results-section found-section">
+            <h3>Found</h3>
+            {% for d in wr.matched_definitions %}
+            <div class="result-def result-found">
+                <span class="check">&#10003;</span>
+                <span class="def-text">{{ d.definition }}</span>
+                <span class="tier-badge tier-{{ d.tier|lower }}">{{ d.tier }}</span>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
-    </div>
-    {% endif %}
+        {% endif %}
 
-    {% if guesses %}
-    <div class="results-section guesses-section">
-        <h3>Your Guesses</h3>
-        {% for g in guesses %}
-        <div class="guess-record {{ 'guess-hit' if g.matched else 'guess-miss' }}">
-            <span class="guess-icon">{{ '&#10003;' if g.matched else '&#10007;' }}</span>
-            <span>"{{ g.text }}"</span>
+        {% if wr.missed_definitions %}
+        <div class="results-section missed-section">
+            <h3>Missed</h3>
+            {% for d in wr.missed_definitions %}
+            <div class="result-def result-missed">
+                <span class="xmark">&#10007;</span>
+                <span class="def-text">{{ d.definition }}</span>
+                <span class="tier-badge tier-{{ d.tier|lower }}">{{ d.tier }}</span>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
+        {% endif %}
+
+        {% set miss_guesses = wr.guesses | selectattr('matched', 'equalto', false) | list %}
+        {% if miss_guesses %}
+        <div class="results-section guesses-section">
+            <h3>Your Guesses</h3>
+            {% for g in miss_guesses %}
+            <div class="guess-record guess-miss">
+                <span class="guess-icon">✗</span>
+                <span>"{{ g.text }}"</span>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
     </div>
-    {% endif %}
+    {% endfor %}
 
     <div class="results-actions">
         <button id="share-btn" class="btn btn-primary"
-            data-word="{{ word }}"
             data-puzzle="{{ puzzle_number }}"
-            data-matched="{{ matched_count }}"
-            data-total="{{ total_count }}"
-            data-results="{% for d in matched_definitions %}+{% endfor %}{% for d in missed_definitions %}-{% endfor %}">
+            data-results="{% for wr in words_results %}{{ wr.word|upper }} {{ wr.matched_count }}/{{ wr.total_count }}&#10;{% endfor %}"
+            data-score="{{ overall_score }}">
             Share
         </button>
         <form action="/next-word" method="post" style="display:inline">
-            <button type="submit" class="btn btn-secondary">Try Another Word</button>
+            <button type="submit" class="btn btn-secondary">Try Another Set</button>
         </form>
         <a href="/" class="btn btn-secondary">Home</a>
     </div>
 
-    <p class="next-word-note">A new word appears every day at midnight.</p>
+    <p class="next-word-note">A new set of words appears every day at midnight.</p>
 </div>
 
 <script>
 document.getElementById("share-btn").addEventListener("click", function() {
     const btn = this;
-    const word = btn.dataset.word.toUpperCase();
     const num = btn.dataset.puzzle;
-    const matched = btn.dataset.matched;
-    const total = btn.dataset.total;
+    const score = btn.dataset.score;
     const results = btn.dataset.results;
 
-    const text = `Homonyms #${num} — ${word}\n${matched}/${total} meanings found\n${results}`;
+    const text = "Homonyms #" + num + "\n" + results + "Overall: " + score + "%";
 
     navigator.clipboard.writeText(text).then(function() {
         btn.textContent = "Copied!";
