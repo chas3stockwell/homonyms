@@ -15,7 +15,7 @@
         {% for w in words_display %}
         <a href="/play?word={{ loop.index0 }}" class="word-tab{% if w.is_active %} active{% endif %}">
             <span class="tab-word">{{ w.word|upper }}</span>
-            <span class="tab-progress">{{ w.matched_count }}/{{ w.total_definitions }}</span>
+            <span class="tab-progress" {% if w.is_active %}id="active-tab-progress"{% endif %}>{{ w.matched_count }}/{{ w.total_definitions }}</span>
         </a>
         {% endfor %}
     </div>

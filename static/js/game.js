@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const matchedList = document.getElementById("matched-list");
     const guessList = document.getElementById("guess-list");
     const progressEl = document.getElementById("progress");
+    const activeTabProgress = document.getElementById("active-tab-progress");
     const placeholders = document.getElementById("placeholders");
 
     const endTimestamp = parseFloat(document.body.dataset.endTimestamp);
@@ -73,6 +74,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     addMatchedDefinition(data.matched_definition);
                     progressEl.textContent =
                         data.matched_count + "/" + data.total_definitions + " found";
+                    if (activeTabProgress) {
+                        activeTabProgress.textContent =
+                            data.matched_count + "/" + data.total_definitions;
+                    }
                     input.classList.add("flash-success");
                     setTimeout(function () {
                         input.classList.remove("flash-success");

@@ -242,6 +242,14 @@ main {
 }
 
 /* Flash animations */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%       { transform: translateX(-6px); }
+    40%       { transform: translateX(6px); }
+    60%       { transform: translateX(-4px); }
+    80%       { transform: translateX(4px); }
+}
+
 .flash-success {
     background-color: rgba(83, 141, 78, 0.3) !important;
     border-color: #538d4e !important;
@@ -250,6 +258,7 @@ main {
 .flash-fail {
     background-color: rgba(231, 76, 60, 0.2) !important;
     border-color: #e74c3c !important;
+    animation: shake 0.4s ease;
 }
 
 /* === Definitions === */

@@ -170,5 +170,99 @@
     ],
     "matched_ids": [],
     "score": 6
+  },
+  "127.0.0.1_2026-02-27_[5, 6, 7]": {
+    "ip": "127.0.0.1",
+    "date": "2026-02-27",
+    "word_id": "[5, 6, 7]",
+    "guesses": [
+      {
+        "matched": true,
+        "matched_definition_id": "pool_3",
+        "text": "pool your money"
+      },
+      {
+        "matched": true,
+        "matched_definition_id": "pool_1",
+        "text": "swim"
+      },
+      {
+        "matched": false,
+        "text": "jordan poole last name"
+      },
+      {
+        "matched": true,
+        "matched_definition_id": "pool_2",
+        "text": "pool"
+      },
+      {
+        "matched": true,
+        "matched_definition_id": "pool_4",
+        "text": "pool"
+      },
+      {
+        "matched": true,
+        "matched_definition_id": "pool_5",
+        "text": "pool"
+      },
+      {
+        "matched": true,
+        "matched_definition_id": "pool_6",
+        "text": "pool"
+      },
+      {
+        "matched": true,
+        "matched_definition_id": "strike_1",
+        "text": "to hit"
+      },
+      {
+        "matched": true,
+        "matched_definition_id": "strike_3",
+        "text": "bowling all the pins down"
+      },
+      {
+        "matched": true,
+        "matched_definition_id": "strike_2",
+        "text": "protest"
+      },
+      {
+        "matched": false,
+        "text": "a position on soccer field"
+      },
+      {
+        "matched": true,
+        "matched_definition_id": "strike_4",
+        "text": "strike out in baseball"
+      },
+      {
+        "matched": true,
+        "matched_definition_id": "strike_5",
+        "text": "baseball"
+      },
+      {
+        "matched": false,
+        "text": "baseball"
+      },
+      {
+        "matched": false,
+        "text": "strike out in baseball"
+      },
+      {
+        "matched": true,
+        "matched_definition_id": "current_1",
+        "text": "modern"
+      },
+      {
+        "matched": false,
+        "text": "wave"
+      },
+      {
+        "matched": true,
+        "matched_definition_id": "current_2",
+        "text": "a riptide, the river moving a direction"
+      }
+    ],
+    "matched_ids": [],
+    "score": 72
   }
 }
