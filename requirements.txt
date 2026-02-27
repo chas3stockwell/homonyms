@@ -1,4 +1,4 @@
 flask>=3.1,<4
-anthropic>=0.52,<1
 python-dotenv>=1.0,<2
-textdistance=4.6.3
+textdistance==4.6.3
+gunicorn>=21,<22
