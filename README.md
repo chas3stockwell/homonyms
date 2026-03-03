@@ -1,10 +1,12 @@
-# Homonyms
+# Daily 3
 
-A daily word game where you're given a single word and challenged to name as many of its meanings as you can in 3 minutes.
+A daily word game where you're given **3 words** and challenged to name as many of their meanings as you can in 3 minutes.
+
+300+ players and counting.
 
 ## How It Works
 
-Every day, a new **homonym** (a word with multiple meanings) is revealed. You type descriptions of each meaning you can think of — for example, if the word is **"bank"**, you might type:
+Every day, a new **Daily 3** — three homonyms (words with multiple meanings) — is revealed. Switch between the three words using the tabs at the top. Type descriptions of each meaning you can think of — for example, if the word is **"bank"**, you might type:
 
 - "where you keep your money"
 - "the side of a river"
@@ -23,15 +25,17 @@ Each word has 5–6 definitions across difficulty tiers:
 | **Rare** | Obscure but real usages |
 | **Unicorn** | Meanings almost nobody thinks of |
 
-Your score is the percentage of definitions found. At the end, all meanings are revealed — including the ones you missed.
+Your score is the percentage of total definitions found across all three words. At the end, all meanings are revealed — including the ones you missed.
 
 ## Features
 
-- **Daily puzzle** — same word for everyone, resets at midnight
-- **3-minute timer** — think fast
-- **AI-powered matching** — describe meanings in your own words
-- **Shareable results** — copy a spoiler-free scorecard (e.g. `Homonyms #1 — CELL 4/6 ++++-​-`)
-- **30 curated words** with definitions sourced from a hand-built word list
+- **Daily 3** — three new words every day for everyone, resets at midnight
+- **3-minute shared timer** — one clock across all three words
+- **Word tabs** — switch between words mid-game, progress is saved
+- **AI-powered matching** — describe meanings in your own words, Claude judges
+- **Shareable results** — copy a spoiler-free scorecard after the game
+- **30+ curated words** with definitions sourced from a hand-built word list
+- **IP-based persistence** — game results saved server-side by player
 
 ## Setup
 
@@ -56,9 +60,13 @@ python app.py
 
 Visit [http://localhost:5001](http://localhost:5001).
 
+## Deployment
+
+Deployed on [Railway](https://railway.app). Set `ANTHROPIC_API_KEY` and `SECRET_KEY` as environment variables in the Railway dashboard — never commit the `.env` file.
+
 ## Tech Stack
 
 - **Flask** — routes, sessions, templates
-- **Anthropic Claude API** — fuzzy definition matching
-- **Vanilla JS** — timer, AJAX guesses, UI updates
-- **No database** — game state lives in a signed session cookie
+- **Anthropic Claude Haiku** — AI-powered definition matching per guess
+- **Vanilla JS** — timer, AJAX guesses, real-time tab updates
+- **No database** — game state in signed session cookie, results in flat JSON file

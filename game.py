@@ -1,6 +1,8 @@
 import json
 import hashlib
 from datetime import date
+import textdistance
+
 
 DAILY_WORD_COUNT = 3
 
