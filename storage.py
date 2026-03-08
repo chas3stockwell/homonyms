@@ -22,6 +22,7 @@ def init_db():
                 date        TEXT    NOT NULL,
                 word_ids    TEXT    NOT NULL,
                 score       REAL    NOT NULL,
+                completed   INTEGER NOT NULL DEFAULT 0,
                 created_at  TEXT    NOT NULL
             );
 
@@ -39,12 +40,12 @@ def init_db():
 init_db()
 
 
-def save_result(ip, word_ids, guesses, _matched_ids, score):
+def save_result(ip, word_ids, guesses, _matched_ids, score, completed=False):
     now = datetime.now(timezone.utc).isoformat()
     with _connect() as con:
         cur = con.execute(
-            "INSERT INTO sessions (ip, date, word_ids, score, created_at) VALUES (?, ?, ?, ?, ?)",
-            (ip, date.today().isoformat(), json.dumps(word_ids) if not isinstance(word_ids, str) else word_ids, score, now),
+            "INSERT INTO sessions (ip, date, word_ids, score, completed, created_at) VALUES (?, ?, ?, ?, ?, ?)",
+            (ip, date.today().isoformat(), json.dumps(word_ids) if not isinstance(word_ids, str) else word_ids, score, int(completed), now),
         )
         session_id = cur.lastrowid
         con.executemany(

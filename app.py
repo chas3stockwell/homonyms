@@ -229,7 +229,7 @@ def results():
 
     ip = request.headers.get("X-Forwarded-For", request.remote_addr or "unknown")
     ip = ip.split(",")[0].strip()
-    save_result(ip, str(word_ids), all_guesses, [], overall_score)
+    save_result(ip, str(word_ids), all_guesses, [], overall_score, completed=(total_matched == total_defs))
 
     return render_template(
         "results.html",
