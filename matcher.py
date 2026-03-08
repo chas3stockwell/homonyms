@@ -12,9 +12,6 @@ def get_client():
 
 
 def check_guess(guess, word, unmatched_definitions):
-    if len(guess.split()) < 2:
-        return {"matched": False, "matched_definition_id": None}
-
     definitions_text = "\n".join(
         f"{i + 1}. [ID:{d['id']}] {d['definition']}"
         for i, d in enumerate(unmatched_definitions)
@@ -31,7 +28,7 @@ Does the player's guess correctly describe any of these definitions? Be generous
 
 IMPORTANT RULES:
 - If the guess is just the word "{word}" itself, or a trivial variation of it (e.g. "{word}s", "{word}ing", "{word}ed"), reply "none" — the player must describe the meaning, not restate the word.
-- If the guess is a synonym or alternate form of the word without any explanation of meaning, reply "none".
+- Single-word guesses are allowed if they clearly identify a specific meaning (e.g. "lightning", "fastener", "herb").
 - Only count a guess if it genuinely describes or demonstrates understanding of a specific meaning.
 
 Reply with only the definition ID (e.g. "bolt_1") if it matches, or "none" if it doesn't."""
