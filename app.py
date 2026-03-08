@@ -124,7 +124,8 @@ def guess():
     if len(guess_text) > 200:
         return jsonify({"error": "Guess too long"}), 400
 
-    active_idx = session.get("active_word_index", 0)
+    active_idx = request.json.get("word_idx", session.get("active_word_index", 0))
+    session["active_word_index"] = active_idx
     words_state = session.get("words_state", [])
     active_state = dict(words_state[active_idx])
     active_word = words_data[active_idx]
@@ -181,6 +182,15 @@ def guess():
         "all_found": all_complete,
         "redirect": url_for("results") if all_complete else None,
     })
+
+
+@app.route("/switch-word", methods=["POST"])
+def switch_word():
+    idx = request.json.get("idx", 0)
+    words_data = get_current_words()
+    if 0 <= idx < len(words_data):
+        session["active_word_index"] = idx
+    return jsonify({"ok": True})
 
 
 @app.route("/time-up", methods=["POST"])
