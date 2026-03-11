@@ -78,35 +78,36 @@
 <!-- Survey Modal -->
 <div id="survey-overlay" class="survey-overlay hidden">
     <div class="survey-modal">
-        <!-- Step 1: Name -->
+        <!-- Step 1: Rejected guess -->
         <div class="survey-step" id="survey-step-1">
             <p class="survey-step-label">1 of 4</p>
-            <h2 class="survey-question">What's your name?</h2>
-            <input type="text" id="survey-name" class="survey-text-input" placeholder="Optional" maxlength="100" autocomplete="off">
+            <h2 class="survey-question">Did the game reject any guess that you are certain should be correct? What was it?</h2>
+            <input type="text" id="survey-rejected" class="survey-text-input" placeholder="Optional" maxlength="200" autocomplete="off">
             <button class="survey-btn-next" id="survey-next-1">Next &rarr;</button>
         </div>
-        <!-- Step 2: Wrong credit -->
+        <!-- Step 2: Aha vs obscure -->
         <div class="survey-step hidden" id="survey-step-2">
             <p class="survey-step-label">2 of 4</p>
-            <h2 class="survey-question">Did you have an answer that got credit for the wrong item?</h2>
+            <h2 class="survey-question">When the answers were revealed, did you get an "aha" moment — or did they feel too obscure and a punishment?</h2>
             <div class="survey-yn">
-                <button class="survey-btn-yn" data-val="yes" id="survey-wrong-yes">Yes</button>
-                <button class="survey-btn-yn" data-val="no" id="survey-wrong-no">No</button>
+                <button class="survey-btn-yn" id="survey-feeling-aha">Aha moment!</button>
+                <button class="survey-btn-yn" id="survey-feeling-obscure">Too obscure</button>
             </div>
         </div>
-        <!-- Step 3: Missing credit -->
+        <!-- Step 3: Time -->
         <div class="survey-step hidden" id="survey-step-3">
             <p class="survey-step-label">3 of 4</p>
-            <h2 class="survey-question">Did you have an answer that should have gotten credit but didn't?</h2>
+            <h2 class="survey-question">Did the 3 minutes feel like enough time? Too much?</h2>
             <div class="survey-yn">
-                <button class="survey-btn-yn" data-val="yes" id="survey-missing-yes">Yes</button>
-                <button class="survey-btn-yn" data-val="no" id="survey-missing-no">No</button>
+                <button class="survey-btn-yn" id="survey-time-less">Not enough</button>
+                <button class="survey-btn-yn" id="survey-time-right">Just right</button>
+                <button class="survey-btn-yn" id="survey-time-more">Too much</button>
             </div>
         </div>
-        <!-- Step 4: Feedback -->
+        <!-- Step 4: Change feedback -->
         <div class="survey-step hidden" id="survey-step-4">
             <p class="survey-step-label">4 of 4</p>
-            <h2 class="survey-question">Any other feedback?</h2>
+            <h2 class="survey-question">Anything else about the game you would consider changing?</h2>
             <textarea id="survey-feedback" class="survey-textarea" placeholder="Optional" maxlength="1000" rows="4"></textarea>
             <div class="survey-final-btns">
                 <button class="survey-btn-submit" id="survey-submit">Submit</button>

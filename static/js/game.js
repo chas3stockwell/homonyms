@@ -191,11 +191,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // --- Survey ---
-    var surveyData = { username: "", wrong_credit: false, missing_credit: false, feedback: "" };
+    var surveyData = { rejected_guess: "", answer_feeling: "", time_feeling: "", change_feedback: "" };
 
     function showSurvey() {
         document.getElementById("survey-overlay").classList.remove("hidden");
-        document.getElementById("survey-name").focus();
+        document.getElementById("survey-rejected").focus();
     }
 
     function goToStep(n) {
@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function submitSurveyAndRedirect() {
-        surveyData.feedback = document.getElementById("survey-feedback").value.trim();
+        surveyData.change_feedback = document.getElementById("survey-feedback").value.trim();
         fetch("/survey", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -212,30 +212,34 @@ document.addEventListener("DOMContentLoaded", function () {
         }).finally(function () { window.location.href = RESULTS_URL; });
     }
 
-    // Step 1: name → next
+    // Step 1: rejected guess → next
     document.getElementById("survey-next-1").addEventListener("click", function () {
-        surveyData.username = document.getElementById("survey-name").value.trim();
+        surveyData.rejected_guess = document.getElementById("survey-rejected").value.trim();
         goToStep(2);
     });
-    document.getElementById("survey-name").addEventListener("keydown", function (e) {
+    document.getElementById("survey-rejected").addEventListener("keydown", function (e) {
         if (e.key === "Enter") { document.getElementById("survey-next-1").click(); }
     });
 
-    // Step 2: wrong credit yes/no
-    document.getElementById("survey-wrong-yes").addEventListener("click", function () {
-        surveyData.wrong_credit = true; goToStep(3);
+    // Step 2: aha vs obscure
+    document.getElementById("survey-feeling-aha").addEventListener("click", function () {
+        surveyData.answer_feeling = "aha"; goToStep(3);
     });
-    document.getElementById("survey-wrong-no").addEventListener("click", function () {
-        surveyData.wrong_credit = false; goToStep(3);
+    document.getElementById("survey-feeling-obscure").addEventListener("click", function () {
+        surveyData.answer_feeling = "obscure"; goToStep(3);
     });
 
-    // Step 3: missing credit yes/no
-    document.getElementById("survey-missing-yes").addEventListener("click", function () {
-        surveyData.missing_credit = true; goToStep(4);
+    // Step 3: time feeling
+    document.getElementById("survey-time-less").addEventListener("click", function () {
+        surveyData.time_feeling = "not_enough"; goToStep(4);
         document.getElementById("survey-feedback").focus();
     });
-    document.getElementById("survey-missing-no").addEventListener("click", function () {
-        surveyData.missing_credit = false; goToStep(4);
+    document.getElementById("survey-time-right").addEventListener("click", function () {
+        surveyData.time_feeling = "just_right"; goToStep(4);
+        document.getElementById("survey-feedback").focus();
+    });
+    document.getElementById("survey-time-more").addEventListener("click", function () {
+        surveyData.time_feeling = "too_much"; goToStep(4);
         document.getElementById("survey-feedback").focus();
     });
 

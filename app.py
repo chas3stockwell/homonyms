@@ -260,10 +260,10 @@ def survey():
     ip = ip.split(",")[0].strip()
     save_survey(
         ip=ip,
-        username=data.get("username", "").strip() or None,
-        wrong_credit=bool(data.get("wrong_credit")),
-        missing_credit=bool(data.get("missing_credit")),
-        feedback=data.get("feedback", "").strip() or None,
+        rejected_guess=data.get("rejected_guess", "").strip() or None,
+        answer_feeling=data.get("answer_feeling", "").strip() or None,
+        time_feeling=data.get("time_feeling", "").strip() or None,
+        change_feedback=data.get("change_feedback", "").strip() or None,
     )
     return jsonify({"ok": True})
 
