@@ -41,9 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
         gameOver = true;
         input.disabled = true;
         submitBtn.disabled = true;
-        fetch("/time-up", { method: "POST" })
-            .then(function (r) { return r.json(); })
-            .then(function (data) { if (data.redirect) window.location.href = data.redirect; });
+        fetch("/time-up", { method: "POST" }).finally(function () { showSurvey(); });
     }
 
     // --- Tab switching ---
@@ -169,8 +167,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     setTimeout(function () { input.classList.remove("flash-fail"); }, 600);
                 }
 
-                if (data.all_found && data.redirect) {
-                    setTimeout(function () { window.location.href = data.redirect; }, 800);
+                if (data.all_found) {
+                    gameOver = true;
+                    input.disabled = true;
+                    submitBtn.disabled = true;
+                    setTimeout(showSurvey, 800);
                 }
             })
             .catch(function (err) { console.error("Guess error:", err); })
@@ -188,4 +189,57 @@ document.addEventListener("DOMContentLoaded", function () {
         div.textContent = str;
         return div.innerHTML;
     }
+
+    // --- Survey ---
+    var surveyData = { username: "", wrong_credit: false, missing_credit: false, feedback: "" };
+
+    function showSurvey() {
+        document.getElementById("survey-overlay").classList.remove("hidden");
+        document.getElementById("survey-name").focus();
+    }
+
+    function goToStep(n) {
+        document.querySelectorAll(".survey-step").forEach(function (el) { el.classList.add("hidden"); });
+        document.getElementById("survey-step-" + n).classList.remove("hidden");
+    }
+
+    function submitSurveyAndRedirect() {
+        surveyData.feedback = document.getElementById("survey-feedback").value.trim();
+        fetch("/survey", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(surveyData),
+        }).finally(function () { window.location.href = RESULTS_URL; });
+    }
+
+    // Step 1: name → next
+    document.getElementById("survey-next-1").addEventListener("click", function () {
+        surveyData.username = document.getElementById("survey-name").value.trim();
+        goToStep(2);
+    });
+    document.getElementById("survey-name").addEventListener("keydown", function (e) {
+        if (e.key === "Enter") { document.getElementById("survey-next-1").click(); }
+    });
+
+    // Step 2: wrong credit yes/no
+    document.getElementById("survey-wrong-yes").addEventListener("click", function () {
+        surveyData.wrong_credit = true; goToStep(3);
+    });
+    document.getElementById("survey-wrong-no").addEventListener("click", function () {
+        surveyData.wrong_credit = false; goToStep(3);
+    });
+
+    // Step 3: missing credit yes/no
+    document.getElementById("survey-missing-yes").addEventListener("click", function () {
+        surveyData.missing_credit = true; goToStep(4);
+        document.getElementById("survey-feedback").focus();
+    });
+    document.getElementById("survey-missing-no").addEventListener("click", function () {
+        surveyData.missing_credit = false; goToStep(4);
+        document.getElementById("survey-feedback").focus();
+    });
+
+    // Step 4: submit / skip
+    document.getElementById("survey-submit").addEventListener("click", submitSurveyAndRedirect);
+    document.getElementById("survey-skip").addEventListener("click", submitSurveyAndRedirect);
 });

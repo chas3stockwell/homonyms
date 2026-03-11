@@ -75,10 +75,52 @@
 </div>
 {% endblock %}
 
+<!-- Survey Modal -->
+<div id="survey-overlay" class="survey-overlay hidden">
+    <div class="survey-modal">
+        <!-- Step 1: Name -->
+        <div class="survey-step" id="survey-step-1">
+            <p class="survey-step-label">1 of 4</p>
+            <h2 class="survey-question">What's your name?</h2>
+            <input type="text" id="survey-name" class="survey-text-input" placeholder="Optional" maxlength="100" autocomplete="off">
+            <button class="survey-btn-next" id="survey-next-1">Next &rarr;</button>
+        </div>
+        <!-- Step 2: Wrong credit -->
+        <div class="survey-step hidden" id="survey-step-2">
+            <p class="survey-step-label">2 of 4</p>
+            <h2 class="survey-question">Did you have an answer that got credit for the wrong item?</h2>
+            <div class="survey-yn">
+                <button class="survey-btn-yn" data-val="yes" id="survey-wrong-yes">Yes</button>
+                <button class="survey-btn-yn" data-val="no" id="survey-wrong-no">No</button>
+            </div>
+        </div>
+        <!-- Step 3: Missing credit -->
+        <div class="survey-step hidden" id="survey-step-3">
+            <p class="survey-step-label">3 of 4</p>
+            <h2 class="survey-question">Did you have an answer that should have gotten credit but didn't?</h2>
+            <div class="survey-yn">
+                <button class="survey-btn-yn" data-val="yes" id="survey-missing-yes">Yes</button>
+                <button class="survey-btn-yn" data-val="no" id="survey-missing-no">No</button>
+            </div>
+        </div>
+        <!-- Step 4: Feedback -->
+        <div class="survey-step hidden" id="survey-step-4">
+            <p class="survey-step-label">4 of 4</p>
+            <h2 class="survey-question">Any other feedback?</h2>
+            <textarea id="survey-feedback" class="survey-textarea" placeholder="Optional" maxlength="1000" rows="4"></textarea>
+            <div class="survey-final-btns">
+                <button class="survey-btn-submit" id="survey-submit">Submit</button>
+                <button class="survey-btn-skip" id="survey-skip">Skip</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% block scripts %}
 <script>
 const ALL_WORDS = {{ words_display | tojson }};
 let activeIdx = {{ active_idx }};
+const RESULTS_URL = "{{ url_for('results') }}";
 </script>
 <script src="{{ url_for('static', filename='js/game.js') }}"></script>
 {% endblock %}

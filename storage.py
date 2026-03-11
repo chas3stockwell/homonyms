@@ -34,6 +34,17 @@ def init_db():
                 matched_definition_id TEXT,
                 guessed_at           TEXT    NOT NULL
             );
+
+            CREATE TABLE IF NOT EXISTS surveys (
+                id            INTEGER PRIMARY KEY AUTOINCREMENT,
+                ip            TEXT    NOT NULL,
+                date          TEXT    NOT NULL,
+                username      TEXT,
+                wrong_credit  INTEGER NOT NULL DEFAULT 0,
+                missing_credit INTEGER NOT NULL DEFAULT 0,
+                feedback      TEXT,
+                submitted_at  TEXT    NOT NULL
+            );
         """)
 
 
@@ -54,6 +65,15 @@ def save_result(ip, word_ids, guesses, _matched_ids, score, completed=False):
                 (session_id, g["text"], int(g["matched"]), g.get("matched_definition_id"), now)
                 for g in guesses
             ],
+        )
+
+
+def save_survey(ip, username, wrong_credit, missing_credit, feedback):
+    now = datetime.now(timezone.utc).isoformat()
+    with _connect() as con:
+        con.execute(
+            "INSERT INTO surveys (ip, date, username, wrong_credit, missing_credit, feedback, submitted_at) VALUES (?, ?, ?, ?, ?, ?, ?)",
+            (ip, date.today().isoformat(), username or None, int(wrong_credit), int(missing_credit), feedback or None, now),
         )
 
 

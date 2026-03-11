@@ -5,7 +5,7 @@ from flask import Flask, jsonify, redirect, render_template, request, session, u
 from config import ALLOW_UNLIMITED_PLAYS, GAME_DURATION_SECONDS, SECRET_KEY
 from game import calculate_score, get_daily_words, get_word_number
 from matcher import check_guess
-from storage import save_result
+from storage import save_result, save_survey
 
 app = Flask(__name__)
 app.secret_key = SECRET_KEY
@@ -251,6 +251,21 @@ def results():
         puzzle_number=get_word_number(),
         word_offset=session.get("word_offset", 0),
     )
+
+
+@app.route("/survey", methods=["POST"])
+def survey():
+    data = request.json or {}
+    ip = request.headers.get("X-Forwarded-For", request.remote_addr or "unknown")
+    ip = ip.split(",")[0].strip()
+    save_survey(
+        ip=ip,
+        username=data.get("username", "").strip() or None,
+        wrong_credit=bool(data.get("wrong_credit")),
+        missing_credit=bool(data.get("missing_credit")),
+        feedback=data.get("feedback", "").strip() or None,
+    )
+    return jsonify({"ok": True})
 
 
 @app.route("/next-word", methods=["POST"])
