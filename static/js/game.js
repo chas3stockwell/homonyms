@@ -122,11 +122,13 @@ document.addEventListener("DOMContentLoaded", function () {
         })
             .then(function (r) { return r.json(); })
             .then(function (data) {
-                if (data.error === "Time is up") {
-                    gameOver = true;
-                    input.disabled = true;
-                    submitBtn.disabled = true;
-                    showSurvey();
+                if (data.error === "Time is up" || data.error === "No active game") {
+                    if (!gameOver) {
+                        gameOver = true;
+                        input.disabled = true;
+                        submitBtn.disabled = true;
+                        showSurvey();
+                    }
                     return;
                 }
                 if (data.redirect && data.all_found == null) {
