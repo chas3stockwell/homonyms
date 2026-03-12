@@ -122,8 +122,15 @@ document.addEventListener("DOMContentLoaded", function () {
         })
             .then(function (r) { return r.json(); })
             .then(function (data) {
-                if (data.error === "Time is up" || (data.redirect && data.all_found == null)) {
-                    if (data.redirect) window.location.href = data.redirect;
+                if (data.error === "Time is up") {
+                    gameOver = true;
+                    input.disabled = true;
+                    submitBtn.disabled = true;
+                    showSurvey();
+                    return;
+                }
+                if (data.redirect && data.all_found == null) {
+                    window.location.href = data.redirect;
                     return;
                 }
 
