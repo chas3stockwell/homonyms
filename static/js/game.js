@@ -177,10 +177,12 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(function (err) { console.error("Guess error:", err); })
             .finally(function () {
                 input.value = "";
-                input.disabled = false;
-                submitBtn.disabled = false;
-                submitBtn.textContent = "Go";
-                input.focus();
+                if (!gameOver) {
+                    input.disabled = false;
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "Go";
+                    input.focus();
+                }
             });
     });
 
